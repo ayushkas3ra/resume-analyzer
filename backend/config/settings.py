@@ -132,7 +132,10 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://your-vercel-app.vercel.app"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://resume-analyzer-c453.onrender.com",
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
