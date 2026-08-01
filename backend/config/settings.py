@@ -85,11 +85,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "resume_analyzer",
-        "USER": "postgres",
-        "PASSWORD": "kasera17",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
+        "OPTIONS": {"sslmode": "require"},
     }
 }
 
@@ -131,9 +132,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-CORS_ALLOWED_ORIGINS = [
-    "https://resume-analyzer-c453.onrender.com",
-]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://your-vercel-app.vercel.app"]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
