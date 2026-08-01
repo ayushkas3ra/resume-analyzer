@@ -134,7 +134,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://resume-analyzer-c453.onrender.com",
+    "https://resume-analyzer-tr8w.vercel.app/",
 ]
 
 REST_FRAMEWORK = {
