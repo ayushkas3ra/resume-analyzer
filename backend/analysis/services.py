@@ -4,7 +4,17 @@ from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import cos_sim
 from .groq_client import GroqClient
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+_model = None
+
+
+def get_model():
+    global _model
+
+    if _model is None:
+        print("Loading SentenceTransformer...")
+        _model = SentenceTransformer("all-MiniLM-L6-v2")
+
+    return _model
 
 
 class AnalysisService:
@@ -16,6 +26,8 @@ class AnalysisService:
 
     @staticmethod
     def analyze_resume(resume, job_description):
+
+        model = get_model()
 
         resume_embedding = model.encode(resume)
 
