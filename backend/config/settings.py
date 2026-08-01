@@ -27,9 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "resume-analyzer-c453.onrender.com",
+]
 
 
 # Application definition
@@ -134,7 +138,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://resume-analyzer-tr8w.vercel.app/",
+    "https://resume-analyzer-tr8w.vercel.app",
 ]
 
 REST_FRAMEWORK = {
@@ -150,3 +154,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = BASE_DIR / "media"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://resume-analyzer-tr8w.vercel.app",
+]
